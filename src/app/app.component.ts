@@ -16,7 +16,8 @@ export class AppComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.dataList = this._DataServiceService.getData();
+    this.dataList = this._DataServiceService.getData().subscribe();
+    // console.log(this.dataList);
     // .subscribe(data => {
     //   console.log(data);
     // });

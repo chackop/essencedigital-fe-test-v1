@@ -5,7 +5,7 @@
   </h1>
 </div>
 <ul>
-  <li *ngFor="let data of dataList | async">
+  <li *ngFor="let data of (dataList | async)">
     <h2>{{ data }}</h2>
   </li>
 </ul>
