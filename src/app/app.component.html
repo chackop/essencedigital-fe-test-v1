@@ -4,9 +4,10 @@
     Welcome to {{ title }}!
   </h1>
 </div>
+<!-- <input type="text" [(ngModel)]="searchText"> -->
+<input type="text" (keyup)="searchText">
 <ul>
-  <li *ngFor="let data of dataList">
-    <h2>{{ data.name }}</h2>
+  <li *ngFor="let data of (dataList | listSearch)">
     <h2>{{ data.name }}</h2>
   </li>
 </ul>

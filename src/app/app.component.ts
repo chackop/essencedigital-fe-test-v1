@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataServiceService } from './data-service.service';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent {
   title = 'Data Display';
   dataList: any[];
+  searchTerm$ = new Subject<string>();
 
   constructor(private _DataServiceService: DataServiceService) { }
 
@@ -18,7 +20,7 @@ export class AppComponent {
     //Add 'implements OnInit' to the class.
     this._DataServiceService.getData().subscribe((data) => {
       this.dataList = data;
-      console.log(this.dataList);
+      // console.log(this.dataList);
     });
   }
 
