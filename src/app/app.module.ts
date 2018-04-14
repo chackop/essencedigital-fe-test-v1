@@ -8,12 +8,14 @@ import { HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DataServiceService } from './data-service.service';
 import { ListSearchPipe } from './pipe/list-search.pipe';
+import { ListSortPipe } from './pipe/list-sort.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListSearchPipe
+    ListSearchPipe,
+    ListSortPipe
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule

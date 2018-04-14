@@ -12,6 +12,9 @@ export class AppComponent {
   title = 'Data Display';
   dataList: any[];
   searchTerm$ = new Subject<string>();
+  direction: number;
+  isDesc: boolean;
+  column: any;
 
   constructor(private _DataServiceService: DataServiceService) { }
 
@@ -22,6 +25,12 @@ export class AppComponent {
       this.dataList = data;
       // console.log(this.dataList);
     });
+  }
+
+  sort(property) {
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    this.direction = this.isDesc ? 1 : -1;
   }
 
 }

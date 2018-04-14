@@ -4,10 +4,19 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<input type="text" [(ngModel)]="searchText">
-<!-- <input type="text" (keyup)="searchText"> -->
-<ul>
-  <li *ngFor="let data of dataList | listSearch: searchText">
-    <h2>{{ data.name }}</h2>
-  </li>
-</ul>
+<div>
+  <input type="text" [(ngModel)]="searchText" placeholder="Search">
+</div>
+<div>
+  <button (click)="sort('name')">Sort by Name</button>
+  <!-- <button (click)="sort('ID')"></button> -->
+  <!-- <button (click)="sort('Description')"></button> -->
+</div>
+<div>
+  <h5>Results</h5>
+  <ul>
+    <li *ngFor="let data of dataList | listSearch: searchText | listSort: {property: column, direction: direction}">
+      <h2>{{ data.name }}</h2>
+    </li>
+  </ul>
+</div>
