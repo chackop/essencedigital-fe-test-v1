@@ -11,7 +11,8 @@
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
-    <mat-button-toggle (click)="sort('name')">Sort by Name</mat-button-toggle>
+    <mat-button-toggle (click)="sort('name')">Sort by Model Name</mat-button-toggle>
+    <mat-button-toggle (click)="sort('tar_name')">Sort by Tariff Name</mat-button-toggle>
   </mat-grid-tile>
 </mat-grid-list>
 
@@ -26,7 +27,7 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <mat-grid-list cols="2">
+    <mat-grid-list cols="2" rowHeight="15em">
       <mat-grid-tile>
         <mat-card>
           <mat-card-header>
