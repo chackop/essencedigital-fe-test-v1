@@ -9,7 +9,7 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Data Display';
+  title = 'Mobile Deals Display';
   dataList: any[];
   searchTerm$ = new Subject<string>();
   direction: number;
@@ -23,7 +23,7 @@ export class AppComponent {
     //Add 'implements OnInit' to the class.
     this._DataServiceService.getData().subscribe((data) => {
       this.dataList = data;
-      console.log(this.dataList);
+      // console.log(this.dataList);
     });
   }
 

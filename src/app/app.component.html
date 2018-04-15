@@ -7,10 +7,7 @@
 <mat-grid-list cols="2" rowHeight="5em">
   <mat-grid-tile>
     <div>
-      <!-- <mat-form-field>
-        <input matInput [(ngModel)]="searchText" placeholder="Search">
-      </mat-form-field> -->
-      <input matInput [(ngModel)]="searchText" placeholder="Search">      
+      <input matInput [(ngModel)]="searchText" placeholder="Search">
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
@@ -18,31 +15,42 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<!-- <input type="text" [(ngModel)]="searchText" placeholder="Search"> -->
-<!-- <mat-button-toggle (click)="sort('name')">Sort by Name</mat-button-toggle> -->
+<div *ngFor="let data of dataList | listSearch: searchText | listSort: {property: column, direction: direction}">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ data.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ data.tar_name }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-<!-- <button (click)="sort('name')">Sort by Name</button> -->
-<!-- <button (click)="sort('ID')"></button> -->
-<!-- <button (click)="sort('Description')"></button> -->
-<div>
-  <h5>Results</h5>
-
-  <mat-card *ngFor="let data of dataList | listSearch: searchText | listSort: {property: column, direction: direction}">
-    <mat-card-header>
-      <mat-card-title>Device</mat-card-title>
-      <mat-card-subtitle>Name: {{ data.name }}</mat-card-subtitle>
-      <mat-card-subtitle>Make: {{ data.make }}</mat-card-subtitle>
-      <mat-card-subtitle>Model: {{ data.model }}</mat-card-subtitle>
-      <mat-card-subtitle>Code: {{ data.code }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-card-title>Tariff</mat-card-title>
-      <mat-card-subtitle>Name: {{ data.tar_name }}</mat-card-subtitle>
-      <mat-card-subtitle>Data: {{ data.tar_data }}</mat-card-subtitle>
-      <mat-card-subtitle>Minutes: {{ data.tar_minutes }}</mat-card-subtitle>
-      <mat-card-subtitle>SMS: {{ data.tar_sms }}</mat-card-subtitle>
-      <mat-card-subtitle>Type: {{ data.type }}</mat-card-subtitle>
-      <mat-card-subtitle>Code: {{ data.tar_code }}</mat-card-subtitle>
-    </mat-card-content>
-  </mat-card>
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Device</mat-card-title>
+            <mat-card-subtitle>Name: {{ data.name }}</mat-card-subtitle>
+            <mat-card-subtitle>Make: {{ data.make }}</mat-card-subtitle>
+            <mat-card-subtitle>Model: {{ data.model }}</mat-card-subtitle>
+            <mat-card-subtitle>Code: {{ data.code }}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Tariff</mat-card-title>
+            <mat-card-subtitle>Name: {{ data.tar_name }}</mat-card-subtitle>
+            <mat-card-subtitle>Data: {{ data.tar_data }}</mat-card-subtitle>
+            <mat-card-subtitle>Minutes: {{ data.tar_minutes }}</mat-card-subtitle>
+            <mat-card-subtitle>SMS: {{ data.tar_sms }}</mat-card-subtitle>
+            <mat-card-subtitle>Type: {{ data.type }}</mat-card-subtitle>
+            <mat-card-subtitle>Code: {{ data.tar_code }}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-expansion-panel>
 </div>
