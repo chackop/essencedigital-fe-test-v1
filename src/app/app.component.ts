@@ -23,7 +23,7 @@ export class AppComponent {
     //Add 'implements OnInit' to the class.
     this._DataServiceService.getData().subscribe((data) => {
       this.dataList = data;
-      // console.log(this.dataList);
+      console.log(this.dataList);
     });
   }
 

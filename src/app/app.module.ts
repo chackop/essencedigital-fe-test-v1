@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
@@ -18,7 +19,7 @@ import { ListSortPipe } from './pipe/list-sort.pipe';
     ListSortPipe
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule
+    BrowserModule, HttpClientModule, FormsModule, MatCardModule
   ],
   providers: [DataServiceService, HttpClient],
   bootstrap: [AppComponent]
