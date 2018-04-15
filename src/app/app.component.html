@@ -4,21 +4,28 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<div>
-  <input type="text" [(ngModel)]="searchText" placeholder="Search">
-</div>
-<div>
-  <button (click)="sort('name')">Sort by Name</button>
-  <!-- <button (click)="sort('ID')"></button> -->
-  <!-- <button (click)="sort('Description')"></button> -->
-</div>
+<mat-grid-list cols="2" rowHeight="5em">
+  <mat-grid-tile>
+    <div>
+      <!-- <mat-form-field>
+        <input matInput [(ngModel)]="searchText" placeholder="Search">
+      </mat-form-field> -->
+      <input matInput [(ngModel)]="searchText" placeholder="Search">      
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-button-toggle (click)="sort('name')">Sort by Name</mat-button-toggle>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- <input type="text" [(ngModel)]="searchText" placeholder="Search"> -->
+<!-- <mat-button-toggle (click)="sort('name')">Sort by Name</mat-button-toggle> -->
+
+<!-- <button (click)="sort('name')">Sort by Name</button> -->
+<!-- <button (click)="sort('ID')"></button> -->
+<!-- <button (click)="sort('Description')"></button> -->
 <div>
   <h5>Results</h5>
-  <!-- <ul>
-    <li *ngFor="let data of dataList | listSearch: searchText | listSort: {property: column, direction: direction}">
-      <h2>{{ data.name }}</h2>
-    </li>
-  </ul> -->
 
   <mat-card *ngFor="let data of dataList | listSearch: searchText | listSort: {property: column, direction: direction}">
     <mat-card-header>
